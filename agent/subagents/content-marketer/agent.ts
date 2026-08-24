@@ -25,5 +25,5 @@ export default defineAgent({
     "audience, the format, any source material or brand context, any already-approved images to " +
     "include, the Notion destination, and the Slack review channel, whenever it knows them, in " +
     "the message. Does not publish, schedule, or touch social accounts.",
-  model: "anthropic/claude-opus-5",
+  model: "anthropic/claude-sonnet-5",
 });

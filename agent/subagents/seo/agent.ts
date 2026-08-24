@@ -31,5 +31,5 @@ export default defineAgent({
     "have. Recommends title tags, meta descriptions, and URL slugs; hand body copy to the content " +
     "marketer. The caller passes the URLs, the target keywords, the audience, and any brand " +
     "context in the message.",
-  model: "anthropic/claude-opus-5",
+  model: "anthropic/claude-sonnet-5",
 });
