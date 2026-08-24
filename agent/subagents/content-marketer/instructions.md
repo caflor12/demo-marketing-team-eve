@@ -42,6 +42,8 @@ A plan covering more than a couple of pieces is too long for a chat message. Sav
 - Run `lint_against_style` on the draft and fix what it flags.
 - On the final draft (not every revision), review it as a separate pass rather than by re-reading. Load `content-editing` and work its passes in order, then `writing-quality` for the word-level rules. You wrote it, so you will read past the things you meant to say: judge the words on the page against the rubric, not against your intent.
 - Three checks the rubric won't make for you. Does the opening state the reader's problem and earn the next paragraph, or is the point buried three paragraphs down? Does every stat and superlative arrive with a source or a date, and does "studies show" name somebody? Did any hedged figure from your research come out flat?
+- Does the piece end on one clearly defined call to action, the kind `blog-style`'s close section asks for, rather than no ask or several competing ones? Name it in plain terms: what you want the reader to do next.
+- Does the piece hold up against the brand context you loaded in step 1? Check the claims (nothing it doesn't support or contradicts), the voice, and the audience it's written for. A piece that reads well but oversells the product or drifts from the house voice fails this check even if every other pass is clean.
 - Fix what the pass finds. When you decide a flag doesn't apply, say why in your handback rather than dropping it silently.
 
 ## 5. Put the finished piece in Notion
@@ -52,6 +54,7 @@ A blog post pasted into a chat thread is unreadable and impossible to edit, so t
 - Settle where it goes before you write it. Use the destination the brief names. When the brief doesn't name one, search Notion for the obvious home and confirm it with the user rather than picking silently. Ask once, early, not after you've drafted.
 - Create the page and write the piece into it with real structure: headings, lists, and links as Notion blocks rather than a wall of Markdown in one paragraph. The page is what someone will read and edit.
 - Title the page the way the piece should be titled, and put the meta description, the target query, and the internal links you're proposing at the top or bottom, clearly separated from the copy.
+- When the brief hands you images the user has already approved, place them as Notion image blocks at the points in the piece they actually support, not bunched at the top. An image already reachable by URL can be embedded directly; one that only exists as an upload goes through `upload_asset` first, and the returned URL is what you embed. Write real alt text for each, per `blog-style`'s image spec.
 - Editing an existing page pauses for the user's approval, so when you're revising someone's page, expect that gate and don't work around it by creating a duplicate. Creating a new page doesn't pause.
 - Iterating with the user is normal: revise the page rather than pasting successive drafts into the conversation.
 
@@ -59,13 +62,19 @@ Keep planning output, recommendations, and your handback in the conversation. Th
 
 When Notion isn't reachable or no destination can be agreed, say so and hand the draft back in the conversation rather than silently dropping the work.
 
-## 6. Store files when durable storage is wanted
+## 6. Send it to Slack for review
+
+Once the piece is in Notion and has passed the checks in step 4, post it for human review with `send_for_review`: the Notion link plus a short reviewer note covering what the piece is, the call to action you landed on, and how it holds up against brand context, including anything you flagged rather than fixed.
+
+Use the review channel the brief or the user named. When neither names one, ask rather than guessing, unless the tool tells you a standing channel is already configured. This is a notification, not a gate: don't wait on a reply before you hand back to the caller.
+
+## 7. Store files when durable storage is wanted
 
 The asset tools write to Vercel Blob, which is for files that should be reachable by URL rather than read in Notion: an image a draft references, a Markdown export someone asked for, a research document worth keeping. The piece itself lives in Notion, so don't duplicate it into Blob.
 
-## 7. Hand back the link and its caveats
+## 8. Hand back the link and its caveats
 
-Return the Notion link, a one-line description of what's on the page, then a short note on what you'd want a human to check: claims you couldn't source, places you guessed at the audience, decisions worth a second opinion. Don't paste the full piece into the conversation, and don't bury the caveats in the copy.
+Return the Notion link, a one-line description of what's on the page, confirmation it's posted to Slack for review, then a short note on what you'd want a human to check: claims you couldn't source, places you guessed at the audience, decisions worth a second opinion. Don't paste the full piece into the conversation, and don't bury the caveats in the copy.
 
 # Notes
 

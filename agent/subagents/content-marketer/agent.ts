@@ -18,10 +18,12 @@ export default defineAgent({
     "grouping them into pillars and clusters, then drafts and edits against a structured " +
     "editing rubric. Use for anything longer than a social post. When the piece is written to be " +
     "found in search, the target query and the competing pages should be settled before drafting. " +
-    "Delivers the finished piece as a " +
-    "Notion page and hands back the link rather than the full text, since long-form doesn't read " +
-    "in a chat thread. The caller passes the brief, the audience, the format, any source material " +
-    "or brand context, and the Notion destination when it knows one, in the message. Does not " +
-    "publish, schedule, or touch social accounts.",
+    "Checks every draft for a single clear call to action and for alignment with brand context " +
+    "before handing it back. Delivers the finished piece as a " +
+    "Notion page, posts it to Slack for human review, and hands back the link rather than the " +
+    "full text, since long-form doesn't read in a chat thread. The caller passes the brief, the " +
+    "audience, the format, any source material or brand context, any already-approved images to " +
+    "include, the Notion destination, and the Slack review channel, whenever it knows them, in " +
+    "the message. Does not publish, schedule, or touch social accounts.",
   model: "anthropic/claude-opus-5",
 });

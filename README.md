@@ -50,7 +50,7 @@ I want to build a team of marketing agents with the eve framework, using the mar
 | Specialist | Owns | Hands back |
 | --- | --- | --- |
 | `product-marketer` | Positioning, messaging, competitive alternatives, and the shared brand context document | The brand context document itself |
-| `content-marketer` | Long-form: blog posts, landing pages, case studies, newsletters, docs | A Notion page link |
+| `content-marketer` | Long-form: blog posts, landing pages, case studies, newsletters, docs | A Notion page link, checked for a clear call to action and brand alignment, posted to Slack for review |
 | `social-media-coordinator` | Short-form for X, LinkedIn, Threads, Bluesky, and Mastodon, plus the Typefully queue | Drafts in Typefully |
 | `seo` | Page and site audits, hierarchy and internal linking, JSON-LD schema, templated page sets | Recommendations, long audits as artifacts |
 | `email` | Reworking existing copy for the inbox, then building, targeting, and sending in Resend | A Resend campaign link |
@@ -66,6 +66,7 @@ Each specialist has a distinct job: the product marketer decides what the team c
 - **Delegation goes one level deep.** Specialists do their own research and edit their own drafts against a written rubric rather than spawning further agents.
 - **Nothing irreversible happens without you.** Sends and deletes in Resend, deletes and scheduled publishes in Typefully, and page moves in Notion all wait for your approval. Drafting stays friction-free. The email specialist also only sees 47 of Resend's roughly 85 tools, so account administration is out of reach entirely.
 - **Slack pins four starter prompts** in a fresh conversation, one per specialist: sharpen our positioning, write a blog post, draft social posts, review a page's SEO.
+- **Every blog draft gets a Slack review request.** Once the content marketer finishes a piece in Notion, it checks the draft for one clear call to action and alignment with your brand context, then posts the link to a Slack channel for a human to review. Set `SLACK_REVIEW_CHANNEL` to pin a standing channel, or the agent asks which one to use.
 
 The full approval matrix, the credential model, and the reasoning behind each boundary live in [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md).
 
