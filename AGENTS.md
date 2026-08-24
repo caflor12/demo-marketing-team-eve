@@ -101,6 +101,12 @@ The lead's `instructions.md` deliberately does not interview the user to build t
 
 The document's structure, length budget, and merge rules live in `product-marketer/skills/brand-context/`. Change them there rather than in the tool description, which should keep saying only what the model needs at the moment of the call.
 
+## The content marketer's review handoff
+
+`content-marketer` doesn't stop at Notion. Before handing a draft back it checks for one clearly defined call to action and for alignment with the brand context it loaded at the start of the task, then posts the Notion link to Slack with `send_for_review`. That check lives in `instructions.md` step 4 rather than in a mechanical tool, on the same reasoning `content-editing`'s other passes use: whether a claim oversells the product or the voice has drifted is a judgment call, not a word list, so it stays prose the model reasons over rather than a lint rule.
+
+`send_for_review` is the one tool in this codebase that calls a remote API directly instead of through a `connections/*.ts` MCP client. It reuses `agent/channels/slack.ts`'s own `SLACK_CONNECTOR` credentials via `callSlackApi`, which is eve's documented way to reach the Slack Web API from outside an inbound handler. Reach for that pattern, not a new Slack connection, if another specialist needs to post proactively: there's no Slack MCP server here, and a second bot install would fragment the one already authorized in the workspace. The tool is deliberately ungated. A review request isn't an irreversible action or a connection write in the sense `save_brand_context`'s neighbors are; it's the normal end of the drafting workflow, the same reasoning that leaves `notion-create-pages` ungated.
+
 ## The SEO agent's evidence boundary
 
 `seo` runs on the default harness, so it has `web_search` and `web_fetch` and no crawler, rank tracker, or Search Console. That gap is the main thing to preserve when editing it, because SEO guidance is full of checks it cannot actually run, and a confident finding it couldn't verify is worse than no finding.
