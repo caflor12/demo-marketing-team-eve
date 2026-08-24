@@ -22,5 +22,5 @@ export default defineAgent({
     "Route long-form prose to the content marketer first and pass what came back to this agent. " +
     "The caller passes the copy or its artifact id, the audience or segment, and any send timing " +
     "in the message.",
-  model: "anthropic/claude-opus-5",
+  model: "anthropic/claude-sonnet-5",
 });

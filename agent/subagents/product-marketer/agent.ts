@@ -29,5 +29,5 @@ export default defineAgent({
     "revise positioning, or when other specialists keep guessing at the same missing detail. " +
     "Interviews the user and researches the competitive set rather than inventing an answer, and " +
     "writes claims that can be checked. Does not draft posts, pages, or campaigns.",
-  model: "anthropic/claude-opus-5",
+  model: "anthropic/claude-sonnet-5",
 });
